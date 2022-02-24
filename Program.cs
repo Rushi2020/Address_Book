@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AddressBook
+namespace Address_Book
 {
     class Program
     {
@@ -8,37 +8,18 @@ namespace AddressBook
         {
             Console.WriteLine("Welcome to Address Book program");
 
-            Address_Book address_Book = new Address_Book();
-
-
-            string firstName = Console.ReadLine();
-            Console.WriteLine("Enter first name");
-
-            string lastName = Console.ReadLine();
-            Console.WriteLine("Enter last name");
-
-            string address = Console.ReadLine();
-            Console.WriteLine("Enter address");
-
-            string phoneNo = Console.ReadLine();
-            Console.WriteLine("Enter phone no");
-
-            string email = Console.ReadLine();
-            Console.WriteLine("Enter email");
-
-            string state = Console.ReadLine();
-            Console.WriteLine("Enter state");
-
-            string zip = Console.ReadLine();
-            Console.WriteLine("Enter zip");
-
-            address_Book.addContact(firstName, lastName, address, email, phoneNo, state, zip);
-
-
-
-
-
-
+            Contact detail = new Contact();
+            ManipulateContact AddContact = new ManipulateContact();
+            AddContact.AddingContact(
+                detail.firstName = Console.ReadLine(),
+                detail.lastName = Console.ReadLine(),
+                detail.address = Console.ReadLine(),
+                detail.city = Console.ReadLine(),
+                detail.state = Console.ReadLine(),
+                detail.zip = Console.ReadLine(),
+                detail.phoneno = Console.ReadLine(),
+                detail.email = Console.ReadLine()
+                ); 
         }
     }
 }
