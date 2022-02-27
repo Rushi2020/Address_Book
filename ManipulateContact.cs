@@ -11,8 +11,7 @@ namespace Address_Book
         List<Contact> AddressBookList = new List<Contact>();
         public void AddingContact
             (
-            string firstname,
-            string lastname,
+            string Name,
             string Address,
             string City,
             string State,
@@ -24,7 +23,7 @@ namespace Address_Book
             AddressBookList.Add
                 (new Contact()
                 {
-                    firstName = firstname,
+                    firstname = Name,
                     address = Address,
                     city = City,
                     state = State,
@@ -33,7 +32,27 @@ namespace Address_Book
                     email = Email
                 }
             );
-            Console.WriteLine($"{firstname} is added");
+            Console.WriteLine($"{Name} is added___________");
+        }
+
+
+        public void EditingContact(string Name)
+        {
+            foreach (var contact in AddressBookList)
+            {
+                if (contact.firstname.Contains(Name))
+                {
+                    
+                    Console.WriteLine("plz provide new phone number");
+                    contact.phoneno = Console.ReadLine();
+                    Console.WriteLine("plz provide new email");
+                    contact.email = Console.ReadLine();
+                    Console.WriteLine("plz provide new email");
+                    contact.address = Console.ReadLine();
+                    Console.WriteLine("plz provide new email");
+                    contact.city = Console.ReadLine();
+                }
+            }
         }
     }
 }
