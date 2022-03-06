@@ -42,5 +42,12 @@ namespace Address_Book
             string firstname = Console.ReadLine();
             manipulate.EditingContact(firstname);
         }
+           
+        public static void DeleteContact()
+        {    // Delete contact
+            Console.WriteLine("enter name you want delete");
+            string Name = Console.ReadLine();
+            manipulate.DeletingContact(Name);
+        }
     }
 }

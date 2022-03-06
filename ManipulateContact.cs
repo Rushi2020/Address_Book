@@ -54,5 +54,18 @@ namespace Address_Book
                 }
             }
         }
+
+        public void DeletingContact(string Name)
+        {
+            foreach (var contact in AddressBookList)
+            {
+                if (contact.firstname.Contains(Name))
+                {
+                    AddressBookList.Remove(contact);
+                    Console.WriteLine($"{Name}'s Contact is deleted");
+                    break;
+                }
+            }
+        }
     }
 }
