@@ -80,5 +80,11 @@ namespace Address_Book
             string Name = Console.ReadLine();
             manipulate.DeletingContact(Name);
         }
+        public void SearchinCity()
+        {
+            Console.Write("enter city name you want search : ");
+            string City = Console.ReadLine();
+            manipulate.SearchinginCity(City);
+        }
     }
 }

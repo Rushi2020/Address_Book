@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Address_Book
 {
-    internal class ManipulateContact
+     class ManipulateContact
     {
        public List<Contact>AddressBookList= new List<Contact>();
         public void AddingContact
@@ -67,5 +67,19 @@ namespace Address_Book
                 }
             }
         }
+
+        public void SearchinginCity(string City)
+        {
+            Console.Write($"{City}: ");
+            foreach (var contact in AddressBookList)
+            {
+                if (contact.city.Contains(City))
+                {
+                    Console.Write($"{contact.firstname}, ");
+                }
+            }
+        }
+
+       
     }
 }
