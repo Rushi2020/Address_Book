@@ -19,6 +19,8 @@ namespace Address_Book
 
             for (int i = 1; i <= num; i++)
             {
+                bool Duplicate = false;
+
                 Console.Write("enter name: ");
                 string Name = Console.ReadLine();
                 Console.Write("enter address: ");
@@ -35,18 +37,37 @@ namespace Address_Book
                 string Email = Console.ReadLine();
                 Contact detail = new Contact();
                 MultiAddressBook.Add(BookName + i, manipulate);
-                manipulate.AddingContact(
-                    detail.firstname = Name,
-                    detail.address = Address,
-                    detail.city = City,
-                    detail.state = State,
-                    detail.zip = ZipCode,
-                    detail.phoneno = PhoneNumber,
-                    detail.email = Email
-                    );
+
+
+
+
+                foreach (var contact in manipulate.AddressBookList)
+                {
+                    if (contact.firstname.Contains(Name))
+                    {
+                        Duplicate = true;
+                    }
+                }
+                if (!Duplicate)
+                {
+                    manipulate.AddingContact(
+                      detail.firstname = Name,
+                      detail.address = Address,
+                      detail.city = City,
+                      detail.state = State,
+                      detail.zip = ZipCode,
+                      detail.phoneno = PhoneNumber,
+                      detail.email = Email
+                      );
+                }
+                else
+                {
+                    Console.WriteLine("contact name already exists");
+                    num++;
+                }
+
             }
         }
-
         public void EditContact()
         {
             Console.Write("enter name you want edit: ");
