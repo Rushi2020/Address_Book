@@ -1,53 +1,30 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
+﻿using System;
 
 namespace Address_Book
 {
     internal class Program
     {
-        public static ManipulateContact manipulate = new ManipulateContact();
 
         static void Main(string[] args)
         {
             Console.WriteLine("welcome to address book system");
+            bool Exit = false;
 
-            AddContact();
-            EditContact();
-        }
-
-        public static void AddContact()
-        {
-            Console.WriteLine("how many contacts do you want to add?");
-            int num = Convert.ToInt32(Console.ReadLine());
-            for (int i = 1; i <= num; i++)
+            ContactOptions contactOptions = new ContactOptions();
+            while (Exit == false)
             {
-                Contact detail = new Contact();
-                
-                manipulate.AddingContact(
-                    detail.firstname = Console.ReadLine(),
-                    detail.address = Console.ReadLine(),
-                    detail.city = Console.ReadLine(),
-                    detail.state = Console.ReadLine(),
-                    detail.zip = Console.ReadLine(),
-                    detail.phoneno = Console.ReadLine(),
-                    detail.email = Console.ReadLine()
-                    );
+                Console.Write("enter address book name: ");
+                string BookName = Console.ReadLine();
 
+                contactOptions.AddContact(BookName);
+                contactOptions.EditContact();
+                contactOptions.DeleteContact();
+                Console.Write("add another address book? (Y/N): ");
+                String Choise = Console.ReadLine().ToUpper();
+                Exit = Choise == "Y" ? false : true;
             }
         }
 
-        public static void EditContact()
-        {
-            Console.WriteLine("enter name you want edit");
-            string firstname = Console.ReadLine();
-            manipulate.EditingContact(firstname);
-        }
-           
-        public static void DeleteContact()
-        {    // Delete contact
-            Console.WriteLine("enter name you want delete");
-            string Name = Console.ReadLine();
-            manipulate.DeletingContact(Name);
-        }
+
     }
 }

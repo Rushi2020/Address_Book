@@ -8,7 +8,7 @@ namespace Address_Book
 {
     internal class ManipulateContact
     {
-        List<Contact> AddressBookList = new List<Contact>();
+       public List<Contact>AddressBookList= new List<Contact>();
         public void AddingContact
             (
             string Name,
