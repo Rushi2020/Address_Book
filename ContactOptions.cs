@@ -86,5 +86,32 @@ namespace Address_Book
             string City = Console.ReadLine();
             manipulate.SearchinginCity(City);
         }
+
+        public void SearchInState()
+        {
+            Console.Write("enter city/state name you want search in: ");
+            string City = Console.ReadLine();
+            manipulate.SearchingInState(City);
+        }
+
+
+        public List<string> findPersons(string place)
+        {
+            List<string> personFounded = new List<string>();
+            foreach (Contact contacts in manipulate.AddressBookList.FindAll(e => (e.city.Equals(place))).ToList())
+            {
+                string name = contacts.firstname + " " + contacts.lastname;
+                personFounded.Add(name);
+            }
+            if (personFounded.Count == 0)
+            {
+                foreach (Contact contacts in manipulate.AddressBookList.FindAll(e => (e.state.Equals(place))).ToList())
+                {
+                    string name = contacts.firstname + " " + contacts.lastname;
+                    personFounded.Add(name);
+                }
+            }
+            return personFounded;
+        }
     }
 }

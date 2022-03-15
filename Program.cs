@@ -4,7 +4,6 @@ namespace Address_Book
 {
     internal class Program
     {
-
         static void Main(string[] args)
         {
             Console.WriteLine("welcome to address book system");
@@ -19,12 +18,12 @@ namespace Address_Book
                 contactOptions.AddContact(BookName);
                 contactOptions.EditContact();
                 contactOptions.DeleteContact();
+                //contactOptions.Searching_State();
+
                 Console.Write("add another address book? (Y/N): ");
                 String Choise = Console.ReadLine().ToUpper();
                 Exit = Choise == "Y" ? false : true;
             }
         }
-
-
     }
 }
