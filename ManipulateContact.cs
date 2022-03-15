@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace Address_Book
 {
@@ -80,6 +81,19 @@ namespace Address_Book
             }
         }
 
-       
+        public void SearchingInState(String City)
+        {
+            List<Contact> CityBookList = new List<Contact>();
+            CityBookList = AddressBookList.FindAll(x => x.city.Contains(City) || x.state.Contains(City));
+
+            foreach (var contact in CityBookList)
+            {
+                Console.Write($"{contact.firstname}, ");
+            }
+            int Count = CityBookList.Count;
+            Console.Write($"\ntotal people: {Count}\n ");
+        }
+
+
     }
 }
