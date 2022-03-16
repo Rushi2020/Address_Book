@@ -7,9 +7,9 @@ using System.Collections;
 
 namespace Address_Book
 {
-     class ManipulateContact
+    class ManipulateContact
     {
-       public List<Contact>AddressBookList= new List<Contact>();
+        public List<Contact> AddressBookList = new List<Contact>();
         public void AddingContact
             (
             string Name,
@@ -43,7 +43,7 @@ namespace Address_Book
             {
                 if (contact.firstname.Contains(Name))
                 {
-                    
+
                     Console.WriteLine("plz provide new phone number");
                     contact.phoneno = Console.ReadLine();
                     Console.WriteLine("plz provide new email");
@@ -94,6 +94,19 @@ namespace Address_Book
             Console.Write($"\ntotal people: {Count}\n ");
         }
 
-
+        public void SortingAddressBook()
+        {
+            IComparer<Contact> comparer = new SortingClass();
+            AddressBookList.Sort(comparer);
+        }
+    }
+    public class SortingClass : IComparer<Contact>
+    {
+        public int Compare(Contact x, Contact y)
+        {
+            int NewName = x.firstname.CompareTo(y.firstname);
+            return NewName;
+        }
     }
 }
+
