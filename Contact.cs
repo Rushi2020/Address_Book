@@ -16,6 +16,11 @@ namespace Address_Book
         public string email { get; set; }
         public string state { get; set; } 
         public string zip { get;  set; }
+
+        public override string ToString()
+        {
+            return $"{this.firstname} {this.lastname} {this.address}  {this.city}  {this.state}  {this.zip}  {this.phoneno}  {this.email}";
+        }
     }
 
 }

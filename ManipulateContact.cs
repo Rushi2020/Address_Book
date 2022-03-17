@@ -113,12 +113,8 @@ namespace Address_Book
                     sorting.Details = Sorting.SortingType.ZIP;
                     break;
             }
-            AddressBookList.Sort(sorting);
 
-            foreach (var contact in AddressBookList)
-            {
-                Console.WriteLine($"firstname: {contact.firstname} lastname: {contact.lastname} city: {contact.city}  state: {contact.state}  zip: {contact.zip}");
-            }
+           
         }
     }
 
@@ -147,11 +143,9 @@ namespace Address_Book
                       break;
                   default:
                       break;
-
               }
                    return x.firstname.CompareTo(y.lastname);
             }  
           }
-    
 }
 
