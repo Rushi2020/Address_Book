@@ -24,6 +24,7 @@ namespace Address_Book
                 String Choise = Console.ReadLine().ToUpper();
                 Exit = Choise == "Y" ? false : true;
             }
+                contactOptions.SortContact();
         }
     }
 }

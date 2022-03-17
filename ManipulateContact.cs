@@ -94,19 +94,64 @@ namespace Address_Book
             Console.Write($"\ntotal people: {Count}\n ");
         }
 
-        public void SortingAddressBook()
+        public void SortingAddessBook(int Option)
         {
-            IComparer<Contact> comparer = new SortingClass();
-            AddressBookList.Sort(comparer);
+            Sorting sorting = new Sorting();
+
+            switch (Option)
+            {
+                case 1:
+                    sorting.Details = Sorting.SortingType.NAME;
+                    break;
+                case 2:
+                    sorting.Details = Sorting.SortingType.CITY;
+                    break;
+                case 3:
+                    sorting.Details = Sorting.SortingType.STATE;
+                    break;
+                case 4:
+                    sorting.Details = Sorting.SortingType.ZIP;
+                    break;
+            }
+            AddressBookList.Sort(sorting);
+
+            foreach (var contact in AddressBookList)
+            {
+                Console.WriteLine($"firstname: {contact.firstname} lastname: {contact.lastname} city: {contact.city}  state: {contact.state}  zip: {contact.zip}");
+            }
         }
     }
-    public class SortingClass : IComparer<Contact>
-    {
-        public int Compare(Contact x, Contact y)
-        {
-            int NewName = x.firstname.CompareTo(y.firstname);
-            return NewName;
-        }
-    }
+
+          public class Sorting : IComparer<Contact>
+          {
+              public enum SortingType
+              {
+                 NAME, CITY, STATE, ZIP
+              }
+              public SortingType Details;
+            public int Compare(Contact x, Contact y)
+            {
+              switch (Details)
+              {
+                  case SortingType.NAME:
+                      return x.firstname.CompareTo(y.firstname);
+                      break;
+                  case SortingType.CITY:
+                      return x.city.CompareTo(y.city);
+                      break;
+                  case SortingType.STATE:
+                      return x.state.CompareTo(y.state);
+                      break;
+                  case SortingType.ZIP:
+                      return x.zip.CompareTo(y.zip);
+                      break;
+                  default:
+                      break;
+
+              }
+                   return x.firstname.CompareTo(y.lastname);
+            }  
+          }
+    
 }
 
