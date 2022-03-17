@@ -94,24 +94,14 @@ namespace Address_Book
             manipulate.SearchingInState(City);
         }
 
-
-        public List<string> findPersons(string place)
+        public void SortContact()
         {
-            List<string> personFounded = new List<string>();
-            foreach (Contact contacts in manipulate.AddressBookList.FindAll(e => (e.city.Equals(place))).ToList())
-            {
-                string name = contacts.firstname + " " + contacts.lastname;
-                personFounded.Add(name);
-            }
-            if (personFounded.Count == 0)
-            {
-                foreach (Contact contacts in manipulate.AddressBookList.FindAll(e => (e.state.Equals(place))).ToList())
-                {
-                    string name = contacts.firstname + " " + contacts.lastname;
-                    personFounded.Add(name);
-                }
-            }
-            return personFounded;
+            Console.Write("enter sort by 1)name 2)city 3)state 4)zip: ");
+            int Option = Convert.ToInt32(Console.ReadLine());
+            manipulate.SortingAddessBook(Option);
         }
+
+
+
     }
 }

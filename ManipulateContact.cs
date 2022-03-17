@@ -7,9 +7,9 @@ using System.Collections;
 
 namespace Address_Book
 {
-     class ManipulateContact
+    class ManipulateContact
     {
-       public List<Contact>AddressBookList= new List<Contact>();
+        public List<Contact> AddressBookList = new List<Contact>();
         public void AddingContact
             (
             string Name,
@@ -43,7 +43,7 @@ namespace Address_Book
             {
                 if (contact.firstname.Contains(Name))
                 {
-                    
+
                     Console.WriteLine("plz provide new phone number");
                     contact.phoneno = Console.ReadLine();
                     Console.WriteLine("plz provide new email");
@@ -94,6 +94,64 @@ namespace Address_Book
             Console.Write($"\ntotal people: {Count}\n ");
         }
 
+        public void SortingAddessBook(int Option)
+        {
+            Sorting sorting = new Sorting();
 
+            switch (Option)
+            {
+                case 1:
+                    sorting.Details = Sorting.SortingType.NAME;
+                    break;
+                case 2:
+                    sorting.Details = Sorting.SortingType.CITY;
+                    break;
+                case 3:
+                    sorting.Details = Sorting.SortingType.STATE;
+                    break;
+                case 4:
+                    sorting.Details = Sorting.SortingType.ZIP;
+                    break;
+            }
+            AddressBookList.Sort(sorting);
+
+            foreach (var contact in AddressBookList)
+            {
+                Console.WriteLine($"firstname: {contact.firstname} lastname: {contact.lastname} city: {contact.city}  state: {contact.state}  zip: {contact.zip}");
+            }
+        }
     }
+
+          public class Sorting : IComparer<Contact>
+          {
+              public enum SortingType
+              {
+                 NAME, CITY, STATE, ZIP
+              }
+              public SortingType Details;
+            public int Compare(Contact x, Contact y)
+            {
+              switch (Details)
+              {
+                  case SortingType.NAME:
+                      return x.firstname.CompareTo(y.firstname);
+                      break;
+                  case SortingType.CITY:
+                      return x.city.CompareTo(y.city);
+                      break;
+                  case SortingType.STATE:
+                      return x.state.CompareTo(y.state);
+                      break;
+                  case SortingType.ZIP:
+                      return x.zip.CompareTo(y.zip);
+                      break;
+                  default:
+                      break;
+
+              }
+                   return x.firstname.CompareTo(y.lastname);
+            }  
+          }
+    
 }
+

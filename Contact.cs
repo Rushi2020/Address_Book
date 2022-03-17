@@ -6,17 +6,16 @@ using System.Threading.Tasks;
 
 namespace Address_Book
 {
-    class Contact
+   public class Contact
     {
-
         public string firstname { get; set; }
         public string lastname { get; set; }
         public string address { get; set; }
         public string city { get; set; }
         public string phoneno { get; set; }
         public string email { get; set; }
-        public string state { get; set; }
-        public string zip { get; internal set; }
+        public string state { get; set; } 
+        public string zip { get;  set; }
     }
 
 }
