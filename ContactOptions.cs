@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Address_Book.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -96,12 +97,15 @@ namespace Address_Book
 
         public void SortContact()
         {
-            Console.Write("enter sort by 1)name 2)city 3)state 4)zip: ");
+            Console.Write("enter sort by 1) name 2) city 3) state 4) zip: ");
             int Option = Convert.ToInt32(Console.ReadLine());
             manipulate.SortingAddessBook(Option);
         }
 
-
-
+        public void FileWrite()
+        {
+            AddessBookIO addressBookIO = new AddessBookIO();
+            addressBookIO.SimpleWrite(manipulate.AddressBookList);
+        }
     }
 }
