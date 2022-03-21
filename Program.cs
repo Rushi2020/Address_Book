@@ -16,8 +16,8 @@ namespace Address_Book
                 string BookName = Console.ReadLine();
 
                 contactOptions.AddContact(BookName);
-                contactOptions.EditContact();
-                contactOptions.DeleteContact();
+                //contactOptions.EditContact();
+                //contactOptions.DeleteContact();
                 //contactOptions.Searching_State();
 
                 Console.Write("add another address book? (Y/N): ");
@@ -25,6 +25,7 @@ namespace Address_Book
                 Exit = Choise == "Y" ? false : true;
             }
                 contactOptions.SortContact();
+                contactOptions.FileWrite();
         }
     }
 }

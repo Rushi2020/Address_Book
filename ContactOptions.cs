@@ -104,8 +104,9 @@ namespace Address_Book
 
         public void FileWrite()
         {
-            AddessBookIO addressBookIO = new AddessBookIO();
-            addressBookIO.SimpleWrite(manipulate.AddressBookList);
+            AddessBookIO addessBookIO = new AddessBookIO();
+            addessBookIO.SimpleWrite(manipulate.AddressBookList);
         }
+
     }
 }
