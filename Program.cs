@@ -1,5 +1,5 @@
 ﻿using System;
-
+using Address_Book.Services;
 namespace Address_Book
 {
     internal class Program
@@ -25,6 +25,7 @@ namespace Address_Book
                 Exit = Choise == "Y" ? false : true;
             }
                 contactOptions.SortContact();
+                contactOptions.FileWrite();
         }
     }
 }

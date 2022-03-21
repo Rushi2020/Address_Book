@@ -104,8 +104,11 @@ namespace Address_Book
 
         public void FileWrite()
         {
-            AddessBookIO addressBookIO = new AddessBookIO();
+            AddressBookIO addressBookIO = new AddressBookIO();
             addressBookIO.SimpleWrite(manipulate.AddressBookList);
+
+            CSVIO csvIO = new CSVIO();
+            csvIO.CSVWrite(manipulate.AddressBookList);
         }
     }
 }
