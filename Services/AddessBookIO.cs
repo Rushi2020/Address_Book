@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Address_Book.Services
 {
-    public class AddessBookIO
+    public class AddressBookIO
     {
         public const string TxtPath = @"C:\Users\Rushikesh\source\repos\Address_Book\Utility/sample.txt";
         public void SimpleWrite(List<Contact> AddressBookList)

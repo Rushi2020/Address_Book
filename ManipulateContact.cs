@@ -144,7 +144,7 @@ namespace Address_Book
                   default:
                       break;
               }
-                   return x.firstname.CompareTo(y.lastname);
+                   return x.firstname.CompareTo(y.firstname);
             }  
           }
 }
