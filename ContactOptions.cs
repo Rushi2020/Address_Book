@@ -104,14 +104,19 @@ namespace Address_Book
 
         public void FileWrite()
         {
+
             AddressBookIO addressBookIO = new AddressBookIO();
             addressBookIO.SimpleWrite(manipulate.AddressBookList);
 
             CSVIO csvIO = new CSVIO();
             csvIO.CSVWrite(manipulate.AddressBookList);
 
+
             JsonIO jsonIO = new JsonIO();
             jsonIO.JsonWrite(manipulate.AddressBookList);
+
+           
         }
+
     }
 }
