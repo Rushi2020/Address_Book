@@ -111,6 +111,10 @@ namespace Address_Book
             CSVIO csvIO = new CSVIO();
             csvIO.CSVWrite(manipulate.AddressBookList);
 
+
+            JsonIO jsonIO = new JsonIO();
+            jsonIO.JsonWrite(manipulate.AddressBookList);
+
            
         }
 
